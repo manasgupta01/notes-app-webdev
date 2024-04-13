@@ -9,14 +9,15 @@ const noteCtrl = {
             return res.status(500).json({msg:err.message})
         }
     },
-    createNote: async(req,res)=>{
+    	createNote: async(req,res)=>{
         try {
             const {title,content,date} = req.body;
-            
+						const newDate = date ? new Date(date) : new Date();
+						console.log(date)
             const newNote = new Notes({
                 title,
                 content,
-                date,
+                date:newDate,
                 user_id: req.user.id,
                 name: req.user.name
             })

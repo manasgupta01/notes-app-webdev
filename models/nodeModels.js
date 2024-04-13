@@ -11,7 +11,7 @@ const noteSchema = new mongoose.Schema({
     },
     date:{
         type: Date,
-        default: Date.now
+        default: () => new Date().toISOString()
     },
     user_id: {
         type: String,

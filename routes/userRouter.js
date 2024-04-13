@@ -9,7 +9,7 @@ router.post('/register',useCtrl.registerUser)
 router.post('/login',useCtrl.loginUser)
 
 // verify token
-router.get('/verify', useCtrl.VerifiedToken)
+router.get('/verify',auth, useCtrl.VerifiedToken)
 
 
 module.exports = router
